@@ -7,13 +7,16 @@ from blocks import *
 from game import Game
 
 pygame.init()
-screen = pygame.display.set_mode((300,600))
+screen = pygame.display.set_mode((400,700))
 pygame.display.set_caption("My little tertis game")
 
 clock = pygame.time.Clock()
 
 game = Game()
 setting = Setting()
+
+GAME_UPDATE = pygame.USEREVENT
+pygame.time.set_timer(GAME_UPDATE, setting.delay)
 
 running = True
 
@@ -31,6 +34,8 @@ while running:    #check game event
                 game.move_down()
             elif event.key == pygame.K_SPACE:
                 game.rotate()
+        if event.type == GAME_UPDATE:
+            game.move_down()
 
     #drawing the screen
     screen.fill(setting.bg_color)
