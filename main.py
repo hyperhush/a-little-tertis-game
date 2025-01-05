@@ -59,6 +59,8 @@ while running:    #check game event
         screen.blit(game_over_surface, (320, 450, 50, 50))
 
     pygame.draw.rect(screen, Colors.light_blue, score_rect, 0, 10)
+    screen.blit(score_value_surface, score_value_surface.get_rect(centerx = score_rect.centerx, 
+		centery = score_rect.centery))
     pygame.draw.rect(screen, Colors.light_blue, next_rect, 0, 10)
     game.draw(screen)
     pygame.display.update()
