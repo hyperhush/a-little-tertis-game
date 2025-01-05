@@ -11,7 +11,7 @@ pygame.display.set_caption("My little tertis game")
 dark_blue = (44,44,127)
 
 game_grid = Grid()
-block = LBlock()
+block = TBlock()
 game_grid.print_grid()
 
 clock = pygame.time.Clock()
