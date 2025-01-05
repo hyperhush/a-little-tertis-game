@@ -1,12 +1,22 @@
 import pygame
 from setting import Setting
+from colors import Colors
 
 class Block:
     def __init__(self,id):
         self.setting = Setting()
         self.id = id
-        self.cell = {}
+        self.cells = {}
+        self.rotation_state = 0
         self.cell_size = self.setting.cell_size
+        self.colors = Colors.get_cell_colors()
+
+    def draw(self,screen):
+        tiles = self.cells[self.rotation_state]
+        for tile in tiles:
+            tile_rect = pygame.Rect(tile.column * self.cell_size + 1, tile.row * self.cell_size + 1, self.cell_size -1, self.cell_size -1)
+			
+            pygame.draw.rect(screen, self.colors[self.id], tile_rect)
         
 
     
