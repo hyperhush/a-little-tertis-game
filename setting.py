@@ -1,8 +1,11 @@
+import pygame
 class Setting:
     def __init__(self):
         self.cell_size = 30
         self.row_number = 20
         self.columes_number = 10
+
+        self.font = pygame.font.Font(None, 40)
 
         self.delay = 500
 

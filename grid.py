@@ -47,6 +47,11 @@ class Grid:
                 self.move_row_down(row, completed)
 
         return completed
+    
+    def clear_grid(self):
+        for colume in range(self.columes):
+            for row in range(self.rows):
+                self.grid[row][colume] = 0
 
     def print_grid(self):
         for row in range(self.rows):
@@ -58,5 +63,5 @@ class Grid:
         for row in range(self.rows):
             for colume in range(self.columes):
                 cell_value = self.grid[row][colume]
-                cell_rect = pygame.Rect(colume * self.cell_size, row * self.cell_size, self.cell_size - 1, self.cell_size - 1)
+                cell_rect = pygame.Rect(colume * self.cell_size + 11, row * self.cell_size + 11, self.cell_size - 1, self.cell_size - 1)
                 pygame.draw.rect(screen, self.colors[cell_value],cell_rect)
