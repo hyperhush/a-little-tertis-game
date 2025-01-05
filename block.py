@@ -18,6 +18,11 @@ class Block:
         self.row_offset += row
         self.colume_offset += colume
 
+    def rotate(self):
+        self.rotation_state += 1
+        if self.rotation_state == len(self.cells):
+            self.rotation_state = 0
+
     def get_cell_position(self):
         tiles = self.cells[self.rotation_state]
         moved_tiles = []

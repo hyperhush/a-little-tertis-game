@@ -11,6 +11,12 @@ class Grid:
         self.grid =[[0 for j in range(self.columes)] for i in range(self.rows)]
         self.colors = Colors.get_cell_colors()
 
+    def is_inside(self, row, colume):
+        if row >= 0 and row < self.rows and colume >= 0 and colume < self.columes:
+            return True
+        else:
+            return False
+
     def print_grid(self):
         for row in range(self.rows):
             for colume in range(self.columes):

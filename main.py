@@ -2,19 +2,19 @@ import sys
 import pygame
 
 from grid import Grid
+from setting import Setting
 from blocks import *
+from game import Game
 
 pygame.init()
 screen = pygame.display.set_mode((300,600))
 pygame.display.set_caption("My little tertis game")
 
-dark_blue = (44,44,127)
-
-game_grid = Grid()
-block = TBlock()
-game_grid.print_grid()
-
 clock = pygame.time.Clock()
+
+game = Game()
+setting = Setting()
+
 running = True
 
 while running:    #check game event
@@ -22,11 +22,19 @@ while running:    #check game event
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                game.move_left()
+            elif event.key == pygame.K_RIGHT:
+                game.move_right()
+            elif event.key == pygame.K_DOWN:
+                game.move_down()
+            elif event.key == pygame.K_SPACE:
+                game.rotate()
 
     #drawing the screen
-    screen.fill(dark_blue)
-    game_grid.draw(screen)
-    block.draw(screen)
+    screen.fill(setting.bg_color)
+    game.draw(screen)
     pygame.display.update()
     clock.tick(60)
         

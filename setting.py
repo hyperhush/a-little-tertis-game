@@ -3,3 +3,5 @@ class Setting:
         self.cell_size = 30
         self.row_number = 20
         self.columes_number = 10
+
+        self.bg_color = (44,44,127)
